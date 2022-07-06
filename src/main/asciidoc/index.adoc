@@ -1,0 +1,53 @@
+= Vert.x io_uring
+:toc: left
+
+Vert.x io_uring is a transport using the io_uring interface of the Linux kernel.
+
+Vert.x io_uring is based on Netty io_uring, more details on the https://github.com/netty/netty-incubator-transport-io_uring[GitHub project].
+
+Vert.x io_uring works with
+
+- https://vertx.io/docs/vertx-core/java/[Vert.x Core] TCP, HTTP, datagram servers/clients
+- https://vertx.io/docs/vertx-grpc/java/[Vert.x gRPC]
+- https://vertx.io/docs/vertx-pg-client/java/[PostgeSQL], https://vertx.io/docs/vertx-mysql-client/java/[MySQL], https://vertx.io/docs/vertx-mssql-client/java/[MSSQL] and https://vertx.io/docs/vertx-db2-client/java/[DB2] reactive clients
+- https://vertx.io/docs/vertx-redis-client/java/[Redis] client
+- https://vertx.io/docs/vertx-mqtt/java/[Vert.x MQTT]
+- https://vertx.io/docs/vertx-amqp-client/java/[Vert.x AMQP] client
+- https://vertx.io/docs/vertx-stomp/java/[Vert.x STOMP]
+- https://vertx.io/docs/vertx-http-proxy/java/[Vert.x HTTP Proxy]
+- https://vertx.io/docs/vertx-mail-client/java/[Vert.x Mail]
+- https://vertx.io/docs/vertx-consul-client/java/[Vert.x Consul] client
+
+WARNING: This module has _incubation_ status and only works on some Linux OSes.
+
+== Using Vert.x io_uring
+
+To use Vert.x io_uring, add the following dependency to the _dependencies_ section of your build descriptor:
+
+* Maven (in your `pom.xml`):
+
+[source,xml,subs="+attributes"]
+----
+<dependency>
+  <groupId>io.vertx</groupId>
+  <artifactId>vertx-io_uring-incubator</artifactId>
+  <version>${maven.version}</version>
+</dependency>
+----
+
+* Gradle (in your `build.gradle` file):
+
+[source,groovy,subs="+attributes"]
+----
+dependencies {
+  compile 'io.vertx:vertx-io_uring-incubator:${maven.version}'
+}
+----
+
+Enable the native transport option when creating the `Vertx` instance:
+
+```java
+Vertx vertx = Vertx.vertx(new VertxOptions().setPreferNativeTransport(true));
+```
+
+When enabled, the io_uring transport takes precedence over the JDK or epoll transports.
