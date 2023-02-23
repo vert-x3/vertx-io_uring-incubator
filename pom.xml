@@ -7,8 +7,10 @@
     <artifactId>vertx-parent</artifactId>
     <version>19</version>
   </parent>
+
   <artifactId>vertx-io_uring-incubator</artifactId>
-  <packaging>jar</packaging>
+  <version>4.4.0-SNAPSHOT</version>
+  <name>Vert.x io_uring incubator</name>
 
   <properties>
     <vertx.version>4.4.0-SNAPSHOT</vertx.version>
