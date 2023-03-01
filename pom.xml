@@ -13,7 +13,7 @@
   <name>Vert.x io_uring incubator</name>
 
   <properties>
-    <vertx.version>4.4.0-SNAPSHOT</vertx.version>
+    <stack.version>4.4.0-SNAPSHOT</stack.version>
     <netty.iouring.version>0.0.18.Final</netty.iouring.version>
     <junit.version>4.13.1</junit.version>
     <assertj.version>3.4.1</assertj.version>
@@ -25,7 +25,7 @@
       <dependency>
         <groupId>io.vertx</groupId>
         <artifactId>vertx-dependencies</artifactId>
-        <version>${vertx.version}</version>
+        <version>${stack.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
