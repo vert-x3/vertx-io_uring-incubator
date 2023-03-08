@@ -1,4 +1,4 @@
-name: CI (4.x)
+name: vertx-io_uring-incubator (4.x)
 on:
   push:
     branches:
