@@ -1,6 +1,7 @@
 # Vert.x io_uring Incubator
 
-[![Build Status](https://github.com/vert-x3/vertx-io_uring-incubator/workflows/CI/badge.svg?branch=main)](https://github.com/vert-x3/vertx-io_uring-incubator/actions?query=workflow%3ACI)
+[![Build Status (5.x)](https://github.com/vert-x3/vertx-io_uring-incubator/actions/workflows/ci-5.x.yml/badge.svg)](https://github.com/vert-x3/vertx-io_uring-incubator/actions/workflows/ci-5.x.yml)
+[![Build Status (4.x)](https://github.com/vert-x3/vertx-io_uring-incubator/actions/workflows/ci-4.x.yml/badge.svg)](https://github.com/vert-x3/vertx-io_uring-incubator/actions/workflows/ci-4.x.yml)
 
 Vert.x io_uring is a transport using the io_uring interface of the Linux kernel.
 
