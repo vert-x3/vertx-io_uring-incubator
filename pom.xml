@@ -12,7 +12,7 @@
 
   <properties>
     <stack.version>5.0.0-SNAPSHOT</stack.version>
-    <netty.iouring.version>0.0.18.Final</netty.iouring.version>
+    <netty.iouring.version>0.0.21.Final</netty.iouring.version>
     <junit.version>4.13.1</junit.version>
     <assertj.version>3.4.1</assertj.version>
     <apacheds-protocol-dns.version>1.5.7</apacheds-protocol-dns.version>
