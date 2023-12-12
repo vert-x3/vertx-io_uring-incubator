@@ -146,7 +146,7 @@ public class IOUringTransport implements Transport {
   }
 
   @Override
-  public void configure(ClientOptionsBase options, boolean domainSocket, Bootstrap bootstrap) {
+  public void configure(ClientOptionsBase options, int connectTimeout, boolean domainSocket, Bootstrap bootstrap) {
     if (domainSocket) {
       throw new IllegalArgumentException();
     }
@@ -155,6 +155,6 @@ public class IOUringTransport implements Transport {
     }
     bootstrap.option(IOUringChannelOption.TCP_QUICKACK, options.isTcpQuickAck());
     bootstrap.option(IOUringChannelOption.TCP_CORK, options.isTcpCork());
-    Transport.super.configure(options, false, bootstrap);
+    Transport.super.configure(options, connectTimeout, false, bootstrap);
   }
 }
