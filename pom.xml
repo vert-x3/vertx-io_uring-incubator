@@ -7,11 +7,11 @@
   </parent>
 
   <artifactId>vertx-io_uring-incubator</artifactId>
-  <version>4.5.1</version>
+  <version>4.5.2-SNAPSHOT</version>
   <name>Vert.x io_uring incubator</name>
 
   <properties>
-    <stack.version>4.5.1</stack.version>
+    <stack.version>4.5.2-SNAPSHOT</stack.version>
     <netty.iouring.version>0.0.21.Final</netty.iouring.version>
     <junit.version>4.13.1</junit.version>
     <assertj.version>3.4.1</assertj.version>
