@@ -2,8 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>io.vertx</groupId>
-    <artifactId>vertx-parent</artifactId>
-    <version>19</version>
+    <artifactId>vertx5-parent</artifactId>
+    <version>3</version>
   </parent>
 
   <artifactId>vertx-io_uring-incubator</artifactId>
@@ -109,76 +109,53 @@
   </dependencies>
 
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>default-compile</id>
+              <phase>compile</phase>
+              <configuration>
+                <annotationProcessors>
+                  <annotationProcessor>io.vertx.docgen.JavaDocGenProcessor</annotationProcessor>
+                </annotationProcessors>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <dependenciesToScan>
+              <dependency>io.vertx:vertx-core</dependency>
+            </dependenciesToScan>
+            <systemPropertyVariables>
+              <vertx.useNativeTransport>true</vertx.useNativeTransport>
+            </systemPropertyVariables>
+            <includes>
+              <include>**/Http1xTest.java</include>
+              <include>**/Http2Test.java</include>
+              <include>**/Http1xTLSTest.java</include>
+              <include>**/Http2TLSTest.java</include>
+              <include>**/NetTest.java</include>
+              <include>**/DatagramTest.java</include>
+            </includes>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <dependenciesToScan>
-            <dependency>io.vertx:vertx-core</dependency>
-          </dependenciesToScan>
-          <systemPropertyVariables>
-            <vertx.useNativeTransport>true</vertx.useNativeTransport>
-          </systemPropertyVariables>
-          <includes>
-            <include>**/Http1xTest.java</include>
-            <include>**/Http2Test.java</include>
-            <include>**/Http1xTLSTest.java</include>
-            <include>**/Http2TLSTest.java</include>
-            <include>**/NetTest.java</include>
-            <include>**/DatagramTest.java</include>
-          </includes>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.bsc.maven</groupId>
-        <artifactId>maven-processor-plugin</artifactId>
-        <version>3.1.0</version>
-        <configuration>
-          <systemProperties>
-            <java.util.logging.SimpleFormatter.format>%4$s: %3$s - %5$s %6$s%n</java.util.logging.SimpleFormatter.format>
-          </systemProperties>
-        </configuration>
-        <executions>
-          <execution>
-            <id>generate-sources</id>
-            <goals>
-              <goal>process</goal>
-            </goals>
-            <phase>generate-sources</phase>
-            <configuration>
-              <processors>
-                <processor>io.vertx.codegen.CodeGenProcessor</processor>
-                <processor>io.vertx.docgen.JavaDocGenProcessor</processor>
-              </processors>
-              <optionMap>
-                <codegen.output>${project.basedir}/src/main</codegen.output>
-                <codegen.output.data_object_converters>generated</codegen.output.data_object_converters>
-                <docgen.source>${asciidoc.dir}</docgen.source>
-                <docgen.output>${project.build.directory}/asciidoc/java</docgen.output>
-                <maven.groupId>${project.groupId}</maven.groupId>
-                <maven.artifactId>${project.artifactId}</maven.artifactId>
-                <maven.version>${project.version}</maven.version>
-              </optionMap>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <executions>
           <execution>
-            <id>assemble-docs</id>
-            <phase>package</phase>
+            <id>package-docs</id>
             <goals>
               <goal>single</goal>
             </goals>
-            <configuration>
-              <attach>true</attach>
-              <descriptors>
-                <descriptor>src/main/assembly/docs.xml</descriptor>
-              </descriptors>
-            </configuration>
           </execution>
         </executions>
       </plugin>
