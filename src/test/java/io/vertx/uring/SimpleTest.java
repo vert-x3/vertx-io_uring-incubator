@@ -2,7 +2,7 @@ package io.vertx.uring;
 
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
-import io.vertx.core.impl.VertxInternal;
+import io.vertx.core.internal.VertxInternal;
 import io.vertx.core.spi.transport.Transport;
 import org.junit.Test;
 
