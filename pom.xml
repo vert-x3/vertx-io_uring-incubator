@@ -3,7 +3,7 @@
   <parent>
     <groupId>io.vertx</groupId>
     <artifactId>vertx5-parent</artifactId>
-    <version>3</version>
+    <version>4</version>
   </parent>
 
   <artifactId>vertx-io_uring-incubator</artifactId>
@@ -49,12 +49,17 @@
     <!-- Generators -->
     <dependency>
       <groupId>io.vertx</groupId>
-      <artifactId>vertx-codegen</artifactId>
+      <artifactId>vertx-codegen-api</artifactId>
       <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
-      <artifactId>vertx-docgen</artifactId>
+      <artifactId>vertx-codegen-json</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-docgen-api</artifactId>
       <optional>true</optional>
     </dependency>
 
@@ -121,11 +126,14 @@
           <executions>
             <execution>
               <id>default-compile</id>
-              <phase>compile</phase>
               <configuration>
-                <annotationProcessors>
-                  <annotationProcessor>io.vertx.docgen.JavaDocGenProcessor</annotationProcessor>
-                </annotationProcessors>
+                <annotationProcessorPaths>
+                  <annotationProcessorPath>
+                    <groupId>io.vertx</groupId>
+                    <artifactId>vertx-docgen-processor</artifactId>
+                    <classifier>processor</classifier>
+                  </annotationProcessorPath>
+                </annotationProcessorPaths>
               </configuration>
             </execution>
           </executions>
