@@ -7,7 +7,7 @@
   </parent>
 
   <artifactId>vertx-io_uring-incubator</artifactId>
-  <version>4.5.32</version>
+  <version>4.5.33-SNAPSHOT</version>
   <name>Vert.x io_uring incubator</name>
 
   <scm>
